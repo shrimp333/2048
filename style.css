@@ -1,0 +1,19 @@
+:root{
+    --size: 400px;
+    --box-size: calc(var(--size)/3)
+}
+
+.parent{
+    display:grid;
+    width: var(--size);
+    aspect-ratio: 1;
+    grid-template-columns: repeat(3, 3fr);
+    gap: .1rem;
+    place-items: center;
+    margin: .5rem;
+}
+.box{
+    aspect-ratio: 1;
+    width: var(--box-size);
+    background-color: red;
+}
