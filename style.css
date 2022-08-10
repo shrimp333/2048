@@ -7,7 +7,7 @@
     display:grid;
     width: var(--size);
     aspect-ratio: 1;
-    grid-template-columns: repeat(3, 3fr);
+    grid-template-columns: repeat(4, 3fr);
     gap: .1rem;
     place-items: center;
     margin: .5rem;
@@ -15,5 +15,13 @@
 .box{
     aspect-ratio: 1;
     width: var(--box-size);
-    background-color: red;
+    background-color: rgb(147, 147, 147);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box > h4 {
+    margin: 0;
+    font-size: 48px;
 }
