@@ -57,6 +57,8 @@ function genNum(max) {
 function move(direction) {
     let moved = compress(direction)
     let merged = merge(direction)
+    compress(direction)
+    compress(direction)
     if (!moved && !merged) return;
     createNew();
 }
@@ -66,8 +68,7 @@ function compress(direction) {
 
     if (direction.move > 0) {
         for (i = 0; i < 16; i++) {
-            if (board[i] === "empty" || (i + 1) % direction.not === 0) continue;
-            if (board[i + direction.move] !== "empty") continue;
+            if (board[i] === "empty" || (i + 1) % direction.not === 0 || board[i + direction.move] !== "empty") continue;
             board[i + direction.move] = board[i];
             board[i] = "empty";
             moved = true;
@@ -75,8 +76,7 @@ function compress(direction) {
     }
     else {
         for (i = 15; i >= 0; i--) {
-            if (board[i] === "empty" || direction.dontmove.includes(i + 1)) continue;
-            if (board[i + direction.move] !== "empty") continue;
+            if (board[i] === "empty" || direction.dontmove.includes(i + 1) || board[i + direction.move] !== "empty") continue;
             board[i + direction.move] = board[i];
             board[i] = "empty";
             moved = true;
